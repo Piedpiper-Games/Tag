@@ -1,0 +1,80 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+	<title>TAG 2014</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+
+	<script type="text/javascript" src="phaser.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+    <script type="text/javascript" src="input.js"></script>
+    <script type="text/javascript" src="overlay.js"></script>
+    <script type="text/javascript" src="menus.js"></script>
+    <script type="text/javascript" src="level.js"></script>
+	
+	
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+        canvas {
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            width: 800px;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+//change back to AUTO when done debugging
+var game = new Phaser.Game(800, 600, Phaser.AUTO, '', null, false, false);
+
+var level = new MainState.Level(game);
+var inputHandler = new MainState.Input(game);
+var overlay = new MainState.Overlay(game);
+
+var running = true;
+
+//alert('game running');
+
+game.state.add('boot', MainState.Boot);
+game.state.add('preload', MainState.Preloader);
+game.state.add('menu_main', MainState.Menus.Main);
+game.state.add('menu_gameover', MainState.Menus.Gameover);
+game.state.add('gameplay', MainState.Gameplay);
+
+game.state.start('boot');
+
+// function update() {
+//     level.update();
+//     playerClass.update();
+//     walkerClass.update();
+//     hud.update();
+// }
+
+// function render() {
+//     game.debug.text("Current Combo: " + currentCombo, 300, 300);
+//     game.debug.text("Max Combo: " + maxCombo, 300, 332);
+//     game.debug.text("Current Mode: " + modeToString(currentMode), 32, 32);
+//     game.debug.text("Coins: " + numCoins, 32, 64);
+//     game.debug.text("Score: " + score, 600, 64);
+//     game.debug.text("High Score: " + highestScore, 600, 96);
+//     //game.debug.text("health:" + playerHealth, playerSprite.x, playerSprite.y - 10);
+
+//     game.time.advancedTiming = true;
+//     game.debug.text("fps: " + game.time.fps, 600, 32);
+// }
+
+
+
+</script>
+
+</body>
+</html>
